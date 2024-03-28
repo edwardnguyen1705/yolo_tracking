@@ -50,9 +50,9 @@ jobs:
     - name: Create and switch to a new branch
       run: |
         git checkout -b update-dependencies-${{ env.BRANCH_DATE }}
-        git pull --rebase origin master
         git add poetry.lock
         git commit -m "Update dependencies" || echo "No changes to commit"
+        git pull --rebase origin master
         git push --set-upstream origin update-dependencies-${{ env.BRANCH_DATE }}
 
     - name: Create Pull Request
